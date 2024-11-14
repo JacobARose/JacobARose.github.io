@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: Currently looking for work! Contact me via email if you think I could help solve your problems.
 
 profile:
   align: right
@@ -17,8 +17,8 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-(Please overlook any odd aspects of this website as I work on getting it set up)
+(Please forgive any omissions or oddities within this website as I work on getting it set up)
 
-I am a scientist, engineer, teacher and musician. I completed my MSc in Electrical Sciences and Computer Engineering at Brown University, where I was supervised first by Professor Chris Rose and then by Professor Thomas Serre. Before this, I completed my BSc in Physics at the University of Massachusetts Amherst.
+I am a scientist, engineer, teacher and musician. I completed my MSc in Electrical Sciences & Computer Engineering at Brown University, where I was supervised first by Professor Chris Rose and then by Professor Thomas Serre. Before this, I completed my BSc in Physics at the University of Massachusetts Amherst.
 
 Before starting on my PhD, I worked on developing data engineering best practices and computer vision models for agricultural research at Terramera Inc in Vancouver, BC.
