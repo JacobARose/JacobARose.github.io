@@ -231,6 +231,7 @@ include: ["_pages"]
 exclude:
   - bin/
   - CONTRIBUTING.md
+  - demos
   - CUSTOMIZE.md
   - Dockerfile
   - docker-compose.yml
@@ -251,6 +252,7 @@ exclude:
 keep_files:
   - CNAME
   - .nojekyll
+  - demos
 
 # Plug-ins
 plugins:

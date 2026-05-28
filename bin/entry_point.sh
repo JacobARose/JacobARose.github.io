@@ -21,6 +21,11 @@ manage_gemfile_lock() {
 
 start_jekyll() {
     manage_gemfile_lock
+    bundle install
+    mkdir -p _site/demos
+    if [ -d "demos" ]; then
+        cp -r demos/* _site/demos/
+    fi
     bundle exec jekyll serve --watch --port=8080 --host=0.0.0.0 --livereload --verbose --trace --force_polling &
 }
 
