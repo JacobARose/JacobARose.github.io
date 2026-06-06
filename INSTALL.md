@@ -18,7 +18,6 @@
     - [Deployment to a separate repository (advanced users only)](#deployment-to-a-separate-repository-advanced-users-only)
   - [Upgrading from a previous version](#upgrading-from-a-previous-version)
 
-
 # Jacob Rose's chosen local installation procedure
 
 Here is what has been working for me so far:
@@ -29,18 +28,18 @@ Here is what has been working for me so far:
 2. Open repo in Visual Studio Code (or IDE of choice)
 
 3. Open a new terminal and enter:
+
    1. `docker compose pull` to pull the docker image specified by the official `Dockerfile` located in the repo's root dir
    2. `docker compose up` to start the Docker container
-  
+
 4. Finally, open a web browser and navigate to the URL `http://localhost:8080` to see a live-hosted local-only rendered version of the website !!!
 
-
 ---
+
 ---
 
 > [!Note]
 > Everything below this point is unchanged from the original al-folio template installation instructions.
-
 
 # Installing and Deploying
 
