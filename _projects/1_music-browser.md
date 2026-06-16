@@ -3,9 +3,14 @@ layout: page
 title: Music Browser
 description: An interactive web application for browsing and playing music.
 img: assets/img/music_browser_preview.png
-importance: 1
+importance: 2
 category: work
 permalink: /projects/1_music-browser/
+grid_span: span-tall
+color_class: text-cyan
+custom_class: cyber-shift
+meta_left: "BMS // SIGNAL\nPRIORITY"
+meta_right: "MAIN_CORE\nCRITICAL"
 ---
 
 This is the project showcase page for the **Music Browser**. Below you will find the link to the actual running demo of the application.
