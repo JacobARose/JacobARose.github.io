@@ -12,7 +12,7 @@ meta_left: "CLUSTER\nDECAY"
 meta_right: "NODE_09\nSECURE"
 ---
 
-Experimental localized database tracking discrete, volatile cryptographic states.
+"[ Currently a placeholder page, please disregard ]"
 
 <div class="text-center my-5">
   <a href="#" class="btn btn-primary btn-lg" onclick="event.preventDefault(); alert('Decrypting quantum states: SUCCESS.');">

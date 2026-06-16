@@ -11,7 +11,7 @@ meta_left: "PROTOCOL\nCLASS"
 meta_right: "TCP/SEC\nSTABLE"
 ---
 
-A high-throughput networking framework constructed to continuously synchronize data-streams across WebSockets.
+"[ Currently a placeholder page, please disregard ]"
 
 <div class="text-center my-5">
   <a href="#" class="btn btn-primary btn-lg" onclick="event.preventDefault(); alert('Sync connection established.');">

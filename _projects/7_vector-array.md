@@ -11,7 +11,7 @@ meta_left: "ARRAY_TYPE\nCOMPLEXITY"
 meta_right: "DYNAMIC\nO(N LOG N)"
 ---
 
-Algorithmic transformation matrix managing geometric coordinate systems in zero-gravity projections.
+"[ Currently a placeholder page, please disregard ]"
 
 <div class="text-center my-5">
   <a href="#" class="btn btn-primary btn-lg" onclick="event.preventDefault(); alert('Vector array transformation matrix loaded.');">

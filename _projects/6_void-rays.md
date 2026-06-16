@@ -11,7 +11,7 @@ meta_left: "MODULE\nLEVEL"
 meta_right: "PRISM.V4\nOMEGA"
 ---
 
-Atmospheric vertex shader rendering dynamic paths of structural raytracing computations.
+"[ Currently a placeholder page, please disregard ]"
 
 <div class="text-center my-5">
   <a href="#" class="btn btn-primary btn-lg" onclick="event.preventDefault(); alert('Shader compilation complete.');">

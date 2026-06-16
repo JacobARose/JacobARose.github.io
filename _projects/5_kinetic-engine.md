@@ -12,7 +12,7 @@ meta_left: "ENGINE\nORIGIN"
 meta_right: "CANVAS_V2\nTOKYO_ARCHIVE"
 ---
 
-A hardware-accelerated 2D simulation layer rendering state-driven geometric microarchitectures.
+"[ Currently a placeholder page, please disregard ]"
 
 <div class="text-center my-5">
   <a href="#" class="btn btn-primary btn-lg" onclick="event.preventDefault(); alert('Kinetic engine initialization successful.');">

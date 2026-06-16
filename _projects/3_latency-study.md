@@ -11,7 +11,7 @@ meta_left: "LOCATION\nPORT"
 meta_right: "STOCKHOLM\n8080"
 ---
 
-This is a telemetry documentation project mapping globally distributed micro-delays. Below you will find the link to the mock interface.
+"[ Currently a placeholder page, please disregard ]"
 
 <div class="text-center my-5">
   <a href="#" class="btn btn-primary btn-lg" onclick="event.preventDefault(); alert('Uplink active: telemetry stream reading normal.');">

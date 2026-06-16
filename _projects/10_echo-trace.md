@@ -11,7 +11,7 @@ meta_left: "STREAM\nRESONANCE"
 meta_right: "AUDIO_DEV\n0.04MS"
 ---
 
-Deep packet inspection telemetry logging residual acoustic feedback profiles across audio nodes.
+"[ Currently a placeholder page, please disregard ]"
 
 <div class="text-center my-5">
   <a href="#" class="btn btn-primary btn-lg" onclick="event.preventDefault(); alert('Ping echo response: 0.04ms latency.');">
