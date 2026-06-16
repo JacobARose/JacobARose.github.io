@@ -73,8 +73,10 @@ body_class: projects-body
   const modalTitle = document.getElementById('modalTitle');
   const modalDesc = document.getElementById('modalDescription');
   const modalContent = document.getElementById('modalContent');
+  let currentProjectTitle = '';
 
   function openModal(title, description, colorClass, panelElement) {
+    currentProjectTitle = title;
     modalTitle.innerText = title;
     modalDesc.innerText = description;
     
@@ -87,12 +89,36 @@ body_class: projects-body
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden'; // Lock background scrolling
+
+    // Track when a project modal is viewed
+    if (typeof gtag === 'function') {
+      gtag('event', 'view_project', {
+        'project_title': title
+      });
+    }
   }
 
   function closeModal(event) {
     modal.classList.remove('active');
     document.body.style.overflow = ''; // Unlock scrolling
+    currentProjectTitle = '';
   }
+
+  // Track button/link clicks inside the project modal
+  modalContent.addEventListener('click', (e) => {
+    const targetLink = e.target.closest('a');
+    if (targetLink) {
+      const url = targetLink.getAttribute('href');
+      const text = targetLink.innerText.trim();
+      if (typeof gtag === 'function') {
+        gtag('event', 'project_link_click', {
+          'project_title': currentProjectTitle,
+          'link_url': url,
+          'link_text': text
+        });
+      }
+    }
+  });
 
   // Close on hitting Escape key
   window.addEventListener('keydown', (e) => {
