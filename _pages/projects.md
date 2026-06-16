@@ -33,7 +33,10 @@ body_class: projects-body
 
       <section class="panel {{ custom_class }} {{ span_class }}"
                onclick="openModal('{{ project.title | escape }}', '{{ project.description | escape }}', '{{ color_class }}', this)">
-        <h2 class="panel-title {{ color_class }}">{{ project.title }}</h2>
+        <div>
+          <h2 class="panel-title {{ color_class }}">{{ project.title }}</h2>
+          <p class="panel-description">{{ project.description }}</p>
+        </div>
 
         <!-- Hidden full content of the project (so we can render it dynamically inside the modal!) -->
         <div class="project-content-holder" style="display: none;">
