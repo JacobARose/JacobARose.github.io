@@ -1,0 +1,42 @@
+name: Build Jekyll site
+description: Sets up Ruby/Python, builds the Jekyll site, copies demos, and purges unused CSS. Assumes checkout already ran.
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Ruby 💎
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: "3.3.5"
+        bundler-cache: true
+    - name: Setup Python 🐍
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.13"
+        cache: "pip"
+    - name: Update _config.yml ⚙️
+      uses: fjogeleit/yaml-update-action@main
+      with:
+        commitChange: false
+        valueFile: "_config.yml"
+        propertyPath: "giscus.repo"
+        value: ${{ github.repository }}
+    - name: Install ImageMagick 🖼️
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y imagemagick
+    - name: Install and Build 🔧
+      shell: bash
+      run: |
+        pip3 install --upgrade jupyter nbconvert
+        export JEKYLL_ENV=production
+        bundle exec jekyll build
+        if [ -d "demos" ]; then
+          cp -r demos _site/
+        fi
+    - name: Purge unused CSS 🧹
+      shell: bash
+      run: |
+        npm install -g purgecss
+        purgecss -c purgecss.config.js

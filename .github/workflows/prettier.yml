@@ -3,12 +3,13 @@ name: Prettier code formatter
 on:
   pull_request:
     branches:
-      - master
       - main
   push:
     branches:
-      - master
       - main
+
+permissions:
+  pull-requests: write
 
 jobs:
   check:
@@ -40,9 +41,10 @@ jobs:
           name: HTML Diff
           path: diff.html
           retention-days: 7
-      - name: Dispatch information to repository 🗣️
+      - name: Comment on PR 💬
         if: ${{ failure() && steps.prettier.conclusion == 'failure' && github.event_name == 'pull_request' }}
-        uses: peter-evans/repository-dispatch@v2
+        uses: thollander/actions-comment-pull-request@v2
         with:
-          event-type: prettier-failed-on-pr
-          client-payload: '{"pr_number": "${{ github.event.number }}", "artifact_url": "${{ steps.artifact-upload.outputs.artifact-url }}", "run_id": "${{ github.run_id }}"}'
+          comment_tag: prettier-failed
+          message: |
+            Failed [prettier code check](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}). Check [this file](${{ steps.artifact-upload.outputs.artifact-url }}) for more information.
