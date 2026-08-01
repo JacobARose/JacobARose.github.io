@@ -56,6 +56,18 @@ table.table a {
   }
 }
 
+.post-header .desc {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--global-text-color-light);
+}
+
+.post-header blockquote.subtitle-note {
+  background-color: var(--global-code-bg-color);
+  font-size: 1rem;
+  margin: 1em 0 2rem;
+}
+
 blockquote {
   background: var(--global-bg-color);
   border-left: 5px solid var(--global-theme-color);

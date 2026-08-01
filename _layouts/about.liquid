@@ -12,6 +12,9 @@ layout: default
       {% endif %}
     </h1>
     <p class="desc">{{ page.subtitle }}</p>
+    {% if page.subtitle_note %}
+      <blockquote class="subtitle-note">{{ page.subtitle_note }}</blockquote>
+    {% endif %}
   </header>
 
   <article>
