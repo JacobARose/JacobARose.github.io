@@ -1,6 +1,6 @@
 # Local Development Guide
 
-This guide documents the step-by-step process of running the local development server for your website (`JacobARose.github.io`) and integrating the local demo builds (`music-browser` and `kaoss-cloud`).
+This guide documents the step-by-step process of running the local development server for your website (`JacobARose.github.io`) and integrating the local demo builds (`music-browser` and `chaos-conductor`).
 
 ---
 
@@ -12,7 +12,7 @@ For paths and build scripts to resolve correctly, it is assumed that all three r
 parent-directory/
 ├── JacobARose.github.io/   # Main website repository
 ├── music-browser/          # Music Browser demo repository
-└── kaoss-cloud/            # Kaoss Cloud demo repository
+└── chaos-conductor/        # Chaos Conductor demo repository
 ```
 
 ---
@@ -40,12 +40,12 @@ Before running the Jekyll site locally, you must compile both Vite applications 
    Copy-Item -Path "./dist/*" -Destination "../JacobARose.github.io/demos/music-browser" -Recurse -Force
    ```
 
-### Step B: Compile Kaoss Cloud
+### Step B: Compile Chaos Conductor
 
-1. Navigate to the `kaoss-cloud` directory.
+1. Navigate to the `chaos-conductor` directory.
 2. Ensure Vite configuration (`vite.config.ts`) has the base path configured:
    ```typescript
-   base: "/demos/kaoss-cloud/";
+   base: "/demos/chaos-conductor/";
    ```
 3. Compile the production bundle:
    ```bash
@@ -53,9 +53,9 @@ Before running the Jekyll site locally, you must compile both Vite applications 
    ```
 4. Copy the compiled outputs to the website repository:
    ```powershell
-   # PowerShell (run from kaoss-cloud root)
-   New-Item -ItemType Directory -Force -Path "../JacobARose.github.io/demos/kaoss-cloud"
-   Copy-Item -Path "./dist/*" -Destination "../JacobARose.github.io/demos/kaoss-cloud" -Recurse -Force
+   # PowerShell (run from chaos-conductor root)
+   New-Item -ItemType Directory -Force -Path "../JacobARose.github.io/demos/chaos-conductor"
+   Copy-Item -Path "./dist/*" -Destination "../JacobARose.github.io/demos/chaos-conductor" -Recurse -Force
    ```
 
 ---
@@ -104,5 +104,5 @@ Once the logs print `Server running... press ctrl-c to stop`, you can access you
 - **Projects Portfolio Showcase**: [http://localhost:8080/projects/](http://localhost:8080/projects/)
 - **Music Browser Showcase Post**: [http://localhost:8080/projects/1_music-browser/](http://localhost:8080/projects/1_music-browser/)
 - **Music Browser Live Demo**: [http://localhost:8080/demos/music-browser/](http://localhost:8080/demos/music-browser/)
-- **Kaoss Cloud Showcase Post**: [http://localhost:8080/projects/2_kaoss-cloud/](http://localhost:8080/projects/2_kaoss-cloud/)
-- **Kaoss Cloud Live Demo**: [http://localhost:8080/demos/kaoss-cloud/](http://localhost:8080/demos/kaoss-cloud/)
+- **Chaos Conductor Showcase Post**: [http://localhost:8080/projects/2_kaoss-cloud/](http://localhost:8080/projects/2_kaoss-cloud/)
+- **Chaos Conductor Live Demo**: [http://localhost:8080/demos/chaos-conductor/](http://localhost:8080/demos/chaos-conductor/)

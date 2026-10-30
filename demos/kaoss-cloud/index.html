@@ -1,24 +1,39 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <!-- viewport-fit=cover: without it iOS confines the layout viewport *inside* the
-         safe area, which letterboxes the app by the display's side insets (~59px on a
-         Dynamic Island device in landscape). Safe-area insets are then reapplied in CSS
-         only where interactive controls actually hug a screen edge. -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Kaoss Cloud">
-    <link rel="apple-touch-icon" href="./icon-192.png" />
-    <meta name="theme-color" content="#111111">
-    <title>Kaoss Cloud</title>
-    <script type="module" crossorigin src="/demos/kaoss-cloud/assets/index-B36pw3jp.js"></script>
-    <link rel="stylesheet" crossorigin href="/demos/kaoss-cloud/assets/index-QEPkZOTX.css">
-  <link rel="manifest" href="/demos/kaoss-cloud/manifest.webmanifest"><script id="vite-plugin-pwa:inline-sw">if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/demos/kaoss-cloud/sw.js', { scope: '/demos/kaoss-cloud/' })})}</script></head>
-  <body style="margin:0; overflow:hidden;">
-    <div id="app"></div>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kaoss Cloud is now Chaos Conductor</title>
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href="/demos/chaos-conductor/" />
+    <meta http-equiv="refresh" content="0; url=/demos/chaos-conductor/" />
+    <script>
+      // The old PWA's service worker is scoped to /demos/kaoss-cloud/ and would keep
+      // serving the cached app. Unregister it before redirecting.
+      (function () {
+        var target = "/demos/chaos-conductor/" + location.search + location.hash;
+        var go = function () {
+          location.replace(target);
+        };
+        if (!("serviceWorker" in navigator)) return go();
+        navigator.serviceWorker
+          .getRegistrations()
+          .then(function (regs) {
+            return Promise.all(
+              regs
+                .filter(function (r) {
+                  return r.scope.indexOf("/demos/kaoss-cloud/") !== -1;
+                })
+                .map(function (r) {
+                  return r.unregister();
+                }),
+            );
+          })
+          .then(go, go);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Kaoss Cloud has been renamed to <a href="/demos/chaos-conductor/">Chaos Conductor</a>. Redirecting…</p>
   </body>
 </html>
