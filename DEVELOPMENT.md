@@ -104,5 +104,5 @@ Once the logs print `Server running... press ctrl-c to stop`, you can access you
 - **Projects Portfolio Showcase**: [http://localhost:8080/projects/](http://localhost:8080/projects/)
 - **Music Browser Showcase Post**: [http://localhost:8080/projects/1_music-browser/](http://localhost:8080/projects/1_music-browser/)
 - **Music Browser Live Demo**: [http://localhost:8080/demos/music-browser/](http://localhost:8080/demos/music-browser/)
-- **Chaos Conductor Showcase Post**: [http://localhost:8080/projects/2_kaoss-cloud/](http://localhost:8080/projects/2_kaoss-cloud/)
+- **Chaos Conductor Showcase Post**: [http://localhost:8080/projects/2_chaos-conductor/](http://localhost:8080/projects/2_chaos-conductor/)
 - **Chaos Conductor Live Demo**: [http://localhost:8080/demos/chaos-conductor/](http://localhost:8080/demos/chaos-conductor/)

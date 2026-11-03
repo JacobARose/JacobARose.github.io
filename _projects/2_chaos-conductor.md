@@ -2,10 +2,10 @@
 layout: page
 title: Chaos Conductor
 description: A web-based musical instrument and audio effects processing interface.
-img: assets/img/kaoss_cloud_preview.png
+img: assets/img/chaos_conductor_preview.png
 importance: 1
 category: work
-permalink: /projects/2_kaoss-cloud/
+permalink: /projects/2_chaos-conductor/
 grid_span: span-tall
 color_class: text-cyan
 custom_class: neural-net
@@ -13,7 +13,7 @@ meta_left: "TOUCHSCREEN\nSYNTHESIZER"
 meta_right: "DRUM\nMACHINE"
 ---
 
-The Chaos Conductor project (formerly Kaoss Cloud) is the focus of my ongoing efforts to expand upon the musically liberating design of the KORG Kaossilator and Kaoss Pad, 2 pieces of audio hardware released in the early 2000s.
+The Chaos Conductor project is the focus of my ongoing efforts to expand upon the musically liberating design of the KORG Kaossilator and Kaoss Pad, 2 pieces of audio hardware released in the early 2000s.
 
 The current vision of the app is a central interface that allows users to quickly weave melodies, drum patterns, and chord progressions into songs through looping and improvisation.
 
