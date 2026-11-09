@@ -1,11 +1,58 @@
 /*******************************************************************************
  * Projects Cyberpunk Grid Styles
  * Scoped under .projects-page-wrapper to prevent global styles pollution
+ *
+ * All colors come from --pj-* tokens so the page follows the site's
+ * light/dark toggle (html[data-theme]). Dark is the default palette.
  ******************************************************************************/
 
+body.projects-body {
+  --pj-bg: #161212;
+  --pj-text: #d1c7c7;
+  --pj-grid: #2d2222;
+  --pj-panel: #171212;
+  --pj-panel-hover: #1c1616;
+  --pj-intro: #1f1818;
+  --pj-kinetic: #211919;
+  --pj-quantum: #13181c;
+  --pj-desc: #8c7a7a;
+  --pj-desc-hover: #bfaeae;
+  --pj-meta: #a39393;
+  --pj-muted: #615050;
+  --pj-overlay: rgba(23, 18, 18, 0.55);
+  --pj-modal-bg: #1c1717;
+  --pj-modal-scrim: rgba(22, 18, 18, 0.85);
+  --pj-modal-text: #bfaeae;
+  --pj-cyan: #50b4b8;
+  --pj-red: #d64d3b;
+  --pj-white: #f5f5f5;
+}
+
+html[data-theme="light"] body.projects-body {
+  --pj-bg: #dcd5d2;
+  --pj-text: #231b1b;
+  --pj-grid: #b0a3a2;
+  --pj-panel: #e3dcd9;
+  --pj-panel-hover: #d8d0cd;
+  --pj-intro: #c2a49c;
+  --pj-kinetic: #c8a8a0;
+  --pj-quantum: #c9d6dc;
+  --pj-desc: #5a4a4a;
+  --pj-desc-hover: #2b2222;
+  --pj-meta: #4f4040;
+  --pj-muted: #7d6b6b;
+  --pj-overlay: rgba(255, 255, 255, 0.78);
+  --pj-modal-bg: #e3dcd9;
+  --pj-modal-scrim: rgba(200, 192, 189, 0.85);
+  --pj-modal-text: #2b2222;
+  --pj-cyan: #0f6b72;
+  --pj-red: #8f2012;
+  --pj-white: #1c1414;
+}
+
 .projects-page-wrapper {
-  background-color: #161212;
-  color: #d1c7c7;
+  background-color: var(--pj-bg);
+  color: var(--pj-text);
   font-family: "Courier New", Courier, monospace;
   font-size: 11px;
   letter-spacing: 0.05em;
@@ -23,13 +70,13 @@
   }
 
   .text-cyan {
-    color: #50b4b8 !important;
+    color: var(--pj-cyan) !important;
   }
   .text-red {
-    color: #d64d3b !important;
+    color: var(--pj-red) !important;
   }
   .text-white {
-    color: #f5f5f5 !important;
+    color: var(--pj-white) !important;
   }
 
   /* --- Asymmetric Scrollable Grid Core --- */
@@ -39,15 +86,15 @@
     grid-template-columns: 1.2fr 1.3fr 1fr;
     /* Auto-rows acting as modular sizing blocks (110px increments) */
     grid-auto-rows: 110px;
-    background-color: #2d2222;
+    background-color: var(--pj-grid);
     gap: 1px;
-    border-bottom: 1px solid #2d2222;
+    border-bottom: 1px solid var(--pj-grid);
   }
 
   /* --- Panel Blueprint --- */
   .panel {
     position: relative;
-    background-color: #171212;
+    background-color: var(--pj-panel);
     padding: 25px;
     display: flex;
     flex-direction: column;
@@ -61,14 +108,14 @@
   }
 
   .panel:hover {
-    background-color: #1c1616;
+    background-color: var(--pj-panel-hover);
   }
 
   /* --- Panel Hover Animations --- */
   .panel-description {
     font-size: 11px;
     line-height: 1.4;
-    color: #8c7a7a;
+    color: var(--pj-desc);
     margin: 0;
     max-height: 0;
     opacity: 0;
@@ -86,7 +133,7 @@
     opacity: 1;
     margin-top: 12px;
     transform: translateY(0);
-    color: #bfaeae;
+    color: var(--pj-desc-hover);
   }
 
   .panel:hover h2.panel-title.text-cyan {
@@ -104,11 +151,16 @@
   .panel-meta {
     display: flex;
     justify-content: space-between;
-    color: #615050;
     text-transform: uppercase;
     font-size: 10px;
     margin-top: 20px;
     line-height: 1.2;
+  }
+
+  /* Theme colors bare divs with --global-text-color (black in light mode),
+     so set the meta color explicitly to be theme-independent. */
+  .panel-meta > div {
+    color: var(--pj-meta);
   }
 
   .meta-right {
@@ -128,34 +180,50 @@
 
   /* Specific unique visual treatments */
   .panel.intro {
-    background-color: #1f1818;
+    background-color: var(--pj-intro);
     cursor: default;
   }
   .panel.intro:hover {
-    background-color: #1f1818;
+    background-color: var(--pj-intro);
   }
   .intro-text {
     font-size: 13px;
     line-height: 1.5;
   }
 
-  // Custom panel background styles with overlays
+  // Custom panel background styles with overlays.
+  // Both image panels share one overlay strength so they look consistent.
+  $panel-image-overlay: var(--pj-overlay);
+
+  // Image panels keep their dark look in both themes: a light overlay on dark
+  // screenshots just turns them muddy grey, so pin the dark palette locally.
+  .panel.cyber-shift,
+  .panel.neural-net {
+    --pj-overlay: rgba(23, 18, 18, 0.55);
+    --pj-cyan: #50b4b8;
+    --pj-red: #d64d3b;
+    --pj-white: #f5f5f5;
+    --pj-meta: #a39393;
+    --pj-desc: #8c7a7a;
+    --pj-desc-hover: #bfaeae;
+  }
+
   .panel.cyber-shift {
     background:
-      linear-gradient(rgba(23, 18, 18, 0.85), rgba(23, 18, 18, 0.85)),
+      linear-gradient($panel-image-overlay, $panel-image-overlay),
       url("../img/music_browser_preview.png") center/cover;
   }
   .panel.neural-net {
     background:
-      linear-gradient(rgba(23, 18, 18, 0.9), rgba(23, 18, 18, 0.9)),
+      linear-gradient($panel-image-overlay, $panel-image-overlay),
       url("../img/chaos_conductor_preview.png") center/cover;
   }
 
   .panel.kinetic {
-    background-color: #211919;
+    background-color: var(--pj-kinetic);
   }
   .panel.quantum {
-    background-color: #13181c;
+    background-color: var(--pj-quantum);
   }
 
   /* --- Interactive Modal Window --- */
@@ -165,7 +233,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(22, 18, 18, 0.85);
+    background-color: var(--pj-modal-scrim);
     backdrop-filter: blur(4px);
     display: flex;
     justify-content: center;
@@ -182,8 +250,8 @@
   }
 
   .modal-window {
-    background-color: #1c1717;
-    border: 1px solid #d64d3b;
+    background-color: var(--pj-modal-bg);
+    border: 1px solid var(--pj-red);
     width: 90%;
     max-width: 650px;
     padding: 40px;
@@ -208,8 +276,8 @@
     top: 20px;
     right: 20px;
     background: none;
-    border: 1px solid #615050;
-    color: #8c7a7a;
+    border: 1px solid var(--pj-muted);
+    color: var(--pj-desc);
     padding: 5px 10px;
     cursor: pointer;
     font-family: "Courier New", Courier, monospace;
@@ -218,8 +286,8 @@
   }
 
   .modal-close:hover {
-    color: #f5f5f5;
-    border-color: #f5f5f5;
+    color: var(--pj-white);
+    border-color: var(--pj-white);
   }
 
   .modal-content {
@@ -240,7 +308,7 @@
   .modal-body {
     font-size: 13px;
     line-height: 1.6;
-    color: #bfaeae;
+    color: var(--pj-modal-text);
   }
 
   .modal-body p {
@@ -256,11 +324,11 @@
   .modal-body span,
   .modal-body strong,
   .modal-body em {
-    color: #bfaeae;
+    color: var(--pj-modal-text);
   }
 
   .modal-body a:not(.btn) {
-    color: #50b4b8;
+    color: var(--pj-cyan);
   }
 
   .modal-body .btn {
@@ -305,8 +373,8 @@
 
 // Layout adjustments to make container full bleed and style the site shell appropriately
 body.projects-body {
-  background-color: #161212 !important;
-  color: #d1c7c7 !important;
+  background-color: var(--pj-bg) !important;
+  color: var(--pj-text) !important;
 
   .container.mt-5[role="main"] {
     max-width: 100% !important;
@@ -322,36 +390,41 @@ body.projects-body {
 
   // Adjust navbar layout for cyberpunk aesthetic
   #navbar {
-    background-color: #161212 !important;
-    border-bottom: 1px solid #2d2222 !important;
+    background-color: var(--pj-bg) !important;
+    border-bottom: 1px solid var(--pj-grid) !important;
 
     .navbar-brand,
     .nav-link,
     #search-toggle span {
-      color: #d1c7c7 !important;
+      color: var(--pj-text) !important;
       font-family: "Courier New", Courier, monospace !important;
       font-size: 12px;
       letter-spacing: 0.1em;
     }
 
     .navbar-toggler .icon-bar {
-      background-color: #d1c7c7 !important;
+      background-color: var(--pj-text) !important;
     }
 
     .nav-item.active .nav-link {
-      color: #50b4b8 !important; // Cyan active highlight
+      color: var(--pj-cyan) !important; // Cyan active highlight
     }
   }
 
   // Adjust footer layout for cyberpunk aesthetic
   footer.fixed-bottom,
   footer.sticky-bottom {
-    background-color: #161212 !important;
-    border-top: 1px solid #2d2222 !important;
-    color: #8c7a7a !important;
+    background-color: var(--pj-bg) !important;
+    border-top: 1px solid var(--pj-grid) !important;
+    color: var(--pj-desc) !important;
     font-family: "Courier New", Courier, monospace !important;
     font-size: 11px;
     padding: 15px 0 !important;
+
+    .container,
+    .container *:not(a) {
+      color: var(--pj-desc) !important;
+    }
 
     .container {
       max-width: 930px;
@@ -361,11 +434,11 @@ body.projects-body {
     }
 
     a {
-      color: #8c7a7a !important;
+      color: var(--pj-desc) !important;
       text-decoration: none;
       margin-left: 20px;
       &:hover {
-        color: #d1c7c7 !important;
+        color: var(--pj-text) !important;
       }
     }
   }

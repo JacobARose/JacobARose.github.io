@@ -19,6 +19,23 @@ let setThemeSetting = (themeSetting) => {
   document.documentElement.setAttribute("data-theme-setting", themeSetting);
 
   applyTheme();
+  updateThemeToggleLabel();
+};
+
+// Describe the current theme in the toggle's hover tooltip and aria-label.
+let updateThemeToggleLabel = () => {
+  const toggle = document.getElementById("light-toggle");
+  if (!toggle) return;
+
+  const setting = determineThemeSetting();
+  const computed = determineComputedTheme();
+  const name = (t) => t.charAt(0).toUpperCase() + t.slice(1);
+  const current = setting == "system" ? "System (" + computed + ")" : name(setting);
+  const next = setting == "system" ? "Light" : setting == "light" ? "Dark" : "System";
+  const label = "Current theme: " + current + ". Click to switch to " + next + ".";
+
+  toggle.setAttribute("title", label);
+  toggle.setAttribute("aria-label", label);
 };
 
 // Apply the computed dark or light theme to the website.
@@ -239,6 +256,7 @@ let initTheme = () => {
   // Add event listener to the theme toggle button.
   document.addEventListener("DOMContentLoaded", function () {
     const mode_toggle = document.getElementById("light-toggle");
+    updateThemeToggleLabel();
 
     mode_toggle.addEventListener("click", function () {
       toggleThemeSetting();
@@ -248,5 +266,6 @@ let initTheme = () => {
   // Add event listener to the system theme preference change.
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
     applyTheme();
+    updateThemeToggleLabel();
   });
 };

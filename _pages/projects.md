@@ -61,7 +61,7 @@ body_class: projects-body
         <div class="modal-body">
           <div id="modalDescription" style="margin-bottom: 20px; font-weight: bold;">Project summary details.</div>
           <div id="modalContent">Project full content.</div>
-          <p style="color: #615050; margin-top: 25px;">[ End of File. System execution termination successful. ]</p>
+          <p style="color: var(--pj-muted); margin-top: 25px;">[ End of File. System execution termination successful. ]</p>
         </div>
       </div>
     </div>

@@ -155,3 +155,14 @@ html[data-theme-setting="light"] {
     display: block;
   }
 }
+
+// Tell the browser which scheme the page actually renders in. "only light"
+// opts the light theme out of browser/OS "force dark" modes (e.g. Chrome Android
+// auto dark mode), which otherwise re-darken it and lift text colors.
+html[data-theme="light"] {
+  color-scheme: only light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
