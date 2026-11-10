@@ -227,7 +227,9 @@ kramdown:
       start_line: 1
 
 # Includes & excludes
-include: ["_pages"]
+# .nojekyll must reach gh-pages so GitHub Pages does not re-run Jekyll and drop
+# underscore-prefixed folders such as demos/chaos-conductor/docs/_astro (CSS/JS/images).
+include: ["_pages", ".nojekyll"]
 exclude:
   - bin/
   - CONTRIBUTING.md
